@@ -1,14 +1,10 @@
 package com.cognitive.face.recognition.api.ui.auth;
 
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +12,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.cognitive.face.recognition.api.data.model.User;
-import com.cognitive.face.recognition.api.helper.db.DbHelper;
 import com.cognitive.face.recognition.api.ui.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -53,7 +48,7 @@ public class FirebaseRegisterFragment extends Fragment {
     EditText mEtEmail;
 
     @BindView(com.cognitive.face.recognition.api.R.id.et_password)
-    EditText mEtPassword;
+    EditText mEtUserPassword3DSecure;
 
     public FirebaseRegisterFragment() {
         // Required empty public constructor
@@ -65,8 +60,7 @@ public class FirebaseRegisterFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
             View view = inflater.inflate(com.cognitive.face.recognition.api.R.layout.fragment_register,container,false);
-
-        Unbinder bind = ButterKnife.bind(this, view);//initialize library
+        ButterKnife.bind(this, view);//initialize library
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
@@ -83,7 +77,7 @@ public class FirebaseRegisterFragment extends Fragment {
 
     private void registerUser(){
         final String email = mEtEmail.getText().toString();
-        String password = mEtPassword.getText().toString();
+        String password = mEtUserPassword3DSecure.getText().toString();
         final String firstName = mEtFirstName.getText().toString();
         final String lastName = mEtLastName.getText().toString();
         final String dob = mEtDOB.getText().toString();
