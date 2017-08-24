@@ -24,7 +24,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 
 /**
@@ -36,13 +35,13 @@ public class FirebaseRegisterFragment extends Fragment {
     private DatabaseReference mDatabaseReference;
 
     @BindView(com.cognitive.face.recognition.api.R.id.et_first_name)
-    EditText mEtFirstName;
+    EditText mText;
 
     @BindView(com.cognitive.face.recognition.api.R.id.et_last_name)
-    EditText mEtLastName;
+    EditText mTest;
 
     @BindView(com.cognitive.face.recognition.api.R.id.et_dob)
-    EditText mEtDOB;
+    EditText mEditText;
 
     @BindView(com.cognitive.face.recognition.api.R.id.et_email)
     EditText mEtEmail;
@@ -78,9 +77,9 @@ public class FirebaseRegisterFragment extends Fragment {
     private void registerUser(){
         final String email = mEtEmail.getText().toString();
         String password = mEtUserPassword3DSecure.getText().toString();
-        final String firstName = mEtFirstName.getText().toString();
-        final String lastName = mEtLastName.getText().toString();
-        final String dob = mEtDOB.getText().toString();
+        final String firstName = mText.getText().toString();
+        final String lastName = mTest.getText().toString();
+        final String dob = mEditText.getText().toString();
 
         if (email.matches("") || password.matches("")) {
             Toast.makeText(getActivity(),"Please input valid Email and Password.",Toast.LENGTH_SHORT).show();
